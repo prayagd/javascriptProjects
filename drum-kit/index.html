@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Drum Beats</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="keys">
+        <div data-key = "65" class="key">
+            <kbd>A</kbd>
+            <span class="Clap">Clap</span>
+        </div>
+        <div data-key = "83" class="key">
+            <kbd>S</kbd>
+            <span class="Hihat">Hihat</span>
+        </div>
+        <div data-key = "68" class="key">
+            <kbd>D</kbd>
+            <span class="Kick">Kick</span>
+        </div>
+        <div data-key = "70" class="key">
+            <kbd>F</kbd>
+            <span class="Ophat">Ophat</span>
+        </div>
+        <div data-key = "71" class="key">
+            <kbd>G</kbd>
+            <span class="Pdhat">Pdhat</span>
+        </div>
+        <div data-key = "72" class="key">
+            <kbd>H</kbd>
+            <span class="Snare">Snare</span>
+        </div>
+        <div data-key = "74" class="key">
+            <kbd>J</kbd>
+            <span class="Tom">Tom</span>
+        </div>
+        <div data-key = "75" class="key">
+            <kbd>K</kbd>
+            <span class="Tom2">Tom2</span>
+        </div>
+    </div>
+
+    <audio data-key ="65" src="Sounds\musicradar-drum-samples\Drum Kits\Kit 6 - Electro\CYCdh_ElecK03-Clap01.wav"></audio>
+    <audio data-key ="83" src="Sounds\musicradar-drum-samples\Drum Kits\Kit 6 - Electro\CYCdh_ElecK03-ClHat.wav"></audio>
+    <audio data-key ="68" src="Sounds\musicradar-drum-samples\Drum Kits\Kit 6 - Electro\CYCdh_ElecK03-Kick01.wav"></audio>
+    <audio data-key ="70" src="Sounds\musicradar-drum-samples\Drum Kits\Kit 6 - Electro\CYCdh_ElecK03-OpHat.wav"></audio>
+    <audio data-key ="71" src="Sounds\musicradar-drum-samples\Drum Kits\Kit 6 - Electro\CYCdh_ElecK03-PdHat.wav"></audio>
+    <audio data-key ="72" src="Sounds\musicradar-drum-samples\Drum Kits\Kit 6 - Electro\CYCdh_ElecK03-Snr01.wav"></audio>
+    <audio data-key ="74" src="Sounds\musicradar-drum-samples\Drum Kits\Kit 6 - Electro\CYCdh_ElecK03-Tom01.wav"></audio>
+    <audio data-key ="75" src="Sounds\musicradar-drum-samples\Drum Kits\Kit 6 - Electro\CYCdh_ElecK03-Tom03.wav"></audio>
+    
+
+    <script>
+    
+        window.addEventListener('keydown', function(a){
+            const audio = document.querySelector(`audio[data-key = "${a.keyCode}"]`);
+            const key = document.querySelector(`.key[data-key = "${a.keyCode}"]`);
+            if(!audio) return;
+            audio.currentTime = 0;
+            audio.play();
+            key.classList.add('playing');
+        });
+
+        function removeTransition(a){
+            if(a.propertyName !== 'transform') return;
+            this.classList.remove('playing');
+        }
+    
+        const keys = document.querySelectorAll('.key');
+        keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+    </script>
+    
+    
+</body>
+</html>
