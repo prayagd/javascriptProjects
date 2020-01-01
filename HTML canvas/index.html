@@ -1,0 +1,55 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="draw"></canvas>
+
+    <script>
+        const canvas = document.querySelector('#draw');
+        const context = canvas.getContext("2d")
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        context.strokeStyle = '#BADASS';
+        context.lineJoin = "round";
+        context.lineCap = "round";
+        context.lineWidth = 20;
+
+        let lastX = 0;
+        let lastY = 0;
+        let drawing = false;
+        let hue = 0;
+
+        function isDraw(a){
+            if(!drawing) return;
+            console.log(a)
+            context.strokeStyle = `hsl(${hue}, 100%, 50%)`;
+            context.beginPath();
+            context.moveTo(lastX,lastY);
+            context.lineTo(a.offsetX, a.offsetY);
+            context.stroke();
+            lastX = a.offsetX;
+            lastY = a.offsetY;
+            hue++;
+            
+            
+            
+        }
+
+        canvas.addEventListener("mousedown", (a) => {
+            drawing = true
+            lastX = a.offsetX;
+            lastY = a.offsetY;
+            });
+        canvas.addEventListener("mousemove", isDraw);
+
+
+        canvas.addEventListener("mouseup", () => drawing = false);
+        canvas.addEventListener("mouseout", () => drawing = false);
+    </script>
+</body>
+</html>
