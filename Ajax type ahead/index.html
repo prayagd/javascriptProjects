@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles.css">
+    <title>Ajax</title>
+</head>
+<body>
+
+    <form class="search-form">
+        <input type="text" placeholder="City or State" class="search">
+        <ul class="suggestions">
+            <li>Filter for a city</li>
+            <li>or a state</li>
+        </ul>
+
+    </form>
+
+    <script>
+
+        const website = "https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json"  
+        
+        const city = [];
+
+        fetch(website).then(val => val.json()).then(data => city.push(...data))
+
+        function findMatch(wordToMatch, city){
+            return city.filter(val => {
+                const regex = new RegExp(wordToMatch, "gi");
+                return val.city.match(regex) || val.state.match(regex)
+            })
+        }
+
+        function displayMatch(){
+            const matchArray = findMatch(this.value, city)
+            const html = matchArray.map(val => {
+                return `
+                    <li>
+                        <span class="name">${val.city}, ${val.state}</span>
+                        <spam class="population">${val.population}</span>
+                    </li>
+                `
+            }).join('');
+            suggestions.innerHTML = html
+        }
+
+        const searchInput = document.querySelector('.search');
+        const suggestions = document.querySelector('.suggestions')
+
+        searchInput.addEventListener("change", displayMatch)
+        searchInput.addEventListener("keyup", displayMatch)
+    </script>
+    
+</body>
+</html>
