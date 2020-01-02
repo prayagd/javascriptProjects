@@ -1,0 +1,64 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <p onclick="makeColour()">Click Me!</p>
+
+    <script>
+    
+    function makeColour(){
+        const para = document.querySelector('p');
+        para.style.color = 'green';
+        para.style.fontSize = '50px';
+    }
+
+    console.log("Hello");
+
+    console.log("Hello I am a %s string", "tutu")
+
+    console.log("%c I am very big", "font-size: 30px");
+
+    console.warn("Look at me")
+
+    console.error("oh no oh no")
+
+    console.info("Always produce");
+
+    console.assert(1 === 2, "You are wrong");
+
+    console.clear();
+
+    let p = document.querySelector('p')
+
+    console.log(p)
+    console.dir(p);
+
+    console.clear();
+
+    const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
+
+    console.log(dogs.forEach(dog => {
+        console.groupCollapsed(`${dog.name}`)
+        console.log(`this is ${dog.name}`)
+        console.log(`this is ${dog.age}`)
+        console.groupEnd(`${dog.name}`)
+    }))
+
+
+    console.count("Prayag")
+    console.count("Prayag")
+    console.count("Aryan")
+    console.count("Prayag")
+
+
+    console.table(dogs)
+    
+    </script>
+    
+</body>
+</html>
