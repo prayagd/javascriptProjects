@@ -1,0 +1,91 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles.css">
+    <title>JS checkbox</title>
+</head>
+<body>
+    <div class="inbox">
+        <div class="item">
+            <input type="checkbox">
+            <p>Check</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>One</p>
+        </div>
+        <div class="item"> 
+            <input type="checkbox">
+            <p>Item</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>Out</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>Of</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>It</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>Then hold shift</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>click on any</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>checkbox</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>see magic</p>
+        </div>
+    </div>
+
+    <script>
+        const checkBox = document.querySelectorAll('.inbox input[type = "checkbox"]');
+
+        let lastCheck;
+
+        function strikeIt(a){
+            let inBetween = false;
+            if(a.shiftKey && this.checked){
+                checkBox.forEach(val => {
+                    
+                    if(val === this || val === lastCheck){
+                        console.log(val)
+                        inBetween = !inBetween;
+                    }
+
+                    if(inBetween){
+                        val.checked = true;
+                    }
+                    
+                })
+
+
+            }
+            lastCheck = this;
+        }
+        checkBox.forEach(val => {
+            val.addEventListener("click", strikeIt)
+            
+        })
+
+
+        
+        
+        
+
+    </script>
+
+</body>
+</html>
