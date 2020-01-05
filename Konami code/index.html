@@ -1,0 +1,23 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Konami code</title>
+</head>
+<body>
+
+    <script>
+        const array = [];
+        const code = "prayag";
+        window.addEventListener("keydown", (a) => {
+            array.push(a.key);
+            array.splice(-code.length - 1, array.length - code.length)
+            console.log(array); 
+            if(array.join("") == code){
+                console.log("You cracked the code")
+            }
+        })    
+    </script>
+</body>
+</html>
