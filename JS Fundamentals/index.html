@@ -1,0 +1,73 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ref vs copy</title>
+</head>
+<body>
+
+    <script>
+        let age = 100;
+        let age2 = age;
+        console.log(age, age2);
+        age = 200;
+        console.log(age, age2);
+
+
+        let str = "Prayag";
+        let str2 = str;
+        console.log(str, str2);
+        str = "Desale";
+        console.log(str2, str);
+
+        const players = ["hello", "how", "are", "you", "doing"];
+
+        const team = players;
+
+        console.log(players, team);
+
+        team[4] = "i";
+
+
+        const team2 = players.slice(); 
+
+        const team3  = [].concat(players);
+
+        const team4 = [...players]
+
+        const team5 = Array.from(players);
+
+        const me = {
+            name: 'Prayag Desale',
+            age: 25
+        };
+
+        const newPerson = Object.assign({}, me, {number: 99, age: 15, name: "Samarth"});
+
+        const tutu = {...me};
+
+        const newMe = {
+            name: "prayag Desale",
+            age: 25,
+            Hobbies : {
+                tt: "yes",
+                reading: "yes",
+                socialMedia: "no",
+            }
+        }
+
+        const someone = Object.assign({}, newMe, {name: "Big Hero 6"});
+
+        const otherone = JSON.parse(JSON.stringify(newMe));
+        
+        console.log(otherone);
+        
+
+
+        
+            
+    </script>
+    
+</body>
+</html>
