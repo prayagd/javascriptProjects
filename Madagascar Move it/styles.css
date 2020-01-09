@@ -1,0 +1,22 @@
+html{
+    background-image: url('https://wallpapercave.com/wp/76WQEAt.jpg');
+    background-size: cover;
+    font-family: sans-serif;
+}   
+
+body{
+    margin: 0;
+}
+
+.hero{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-top: 50px;
+}
+
+h1 {
+    text-shadow: 10px 10px 0 rgba(0,0,0,1);
+    font-size: 100px;
+    color: yellow;
+  }
