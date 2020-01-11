@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles.css">
+    <title>Sort Bands</title>
+</head>
+<body>
+    <ul id="bands"></ul>
+
+<script>
+    const bands = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
+
+    function stripIt(val){
+        return val.replace(/^(A |The |An )/i, "").trim()
+    }
+    
+    const sortedBands = bands.sort((a, b) => stripIt(a) > stripIt(b) ? 1 : -1)
+
+    console.log(sortedBands)
+
+    const dispBand = document.querySelector('#bands');
+    console.log(dispBand)
+
+    dispBand.innerHTML = sortedBands.map((val) => `<li>${val}</li>`).join('')
+</script>
+
+</body>
+
+</html>
