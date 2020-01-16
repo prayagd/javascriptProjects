@@ -1,0 +1,69 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Event Capture</title>
+</head>
+<body class="bod">
+
+    <div class="one">
+        <div class="two">
+            <div class="three">
+            </div>
+        </div>
+    </div>
+
+    <style>
+        html{
+            box-sizing: border-box;
+        }
+
+        *, *:before, *:after{
+            box-sizing: inherit;
+        }
+
+        div{
+            width: 100%;
+            padding: 100px;
+        }
+
+        .one{
+            background: magenta;
+        }
+
+        .two{
+            background: mistyrose;
+        }
+
+        .three{
+            background: coral;
+        }
+    </style>
+
+
+    <button>Click me!</button>
+    <script>
+
+        const divs = document.querySelectorAll('div')
+
+        function logText(e){
+            console.log(this.classList.value)
+            // e.stopPropagation();
+
+        }
+
+        divs.forEach(val => val.addEventListener('click', logText, { capture: false, once: true}));
+
+        const button = document.querySelector('button')
+
+        button.addEventListener("click", () => {
+            console.log("hey only once")
+        }, {
+            once: true
+        })
+
+    </script>
+    
+</body>
+</html>
