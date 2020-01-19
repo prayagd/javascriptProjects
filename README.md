@@ -1,7 +1,10 @@
 # javascriptProjects
 30 vanilla javascript projects in 30 days<br/>
-Project 1: Drumkit done with JS,CSS and HTML<br/>
-Project 2: CSS + JS clock with ticking sound<br/>
-Project 3:
+<ul>
+  <li>Project 1 : CSS + JS drumkit</li>
+  <li>Project 2: CSS + JS clock with ticking sound</li>
+  <li>Project 3:</li>
+</ul>
+
 
 
