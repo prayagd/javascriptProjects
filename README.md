@@ -3,10 +3,12 @@
 <ol>
   <li>CSS + JS drumkit</li>
   <li>CSS + JS clock with ticking sound</li>
+  <li>CSS + JS Variables</li>
   <li>Array Cardio</li>
   <li>Html Canvas</li>
   <li>Image gallery</li>
   <li>Ajax type ahead</li>
+  <li>Array Cardio</li>
   <li>chrome dev tools</li>
   <li>JS checkbox</li>
   <li>JS slide on scroll</li>
@@ -19,6 +21,7 @@
   <li>Speech recognition</li>
   <li>Text to speech</li>
   <li>Sticky navbar</li>
+  <li>Follow along highlighter</li>
   <li>Event capture</li>
   <li>Countdown timer</li>
 </ol>
