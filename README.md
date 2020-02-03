@@ -1,4 +1,4 @@
-# javascriptProjects
+
 30 vanilla javascript projects in 30 days<br/>
 <ol>
   <li>CSS + JS drumkit</li>
